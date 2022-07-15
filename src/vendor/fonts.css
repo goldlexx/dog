@@ -1,0 +1,42 @@
+@font-face {
+	src: url("./fonts/Rubik-Bold.eot");
+	src: local("☺"), url("./fonts/Rubik-Bold.woff") format("woff"), url("./fonts/Rubik-Bold.ttf") format("truetype"), url("./fonts/Rubik-Bold.svg") format("svg");
+	font-family: Rubik;
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	src: url("./fonts/Rubik-Italic.eot");
+	src: local("☺"), url("./fonts/Rubik-Italic.woff") format("woff"), url("./fonts/Rubik-Italic.ttf") format("truetype"), url("./fonts/Rubik-Italic.svg") format("svg");
+	font-family: Rubik;
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	src: url("./fonts/Rubik-Light.eot");
+	src: local("☺"), url("./fonts/Rubik-Light.woff") format("woff"), url("./fonts/Rubik-Light.ttf") format("truetype"), url("./fonts/Rubik-Light.svg") format("svg");
+	font-family: Rubik;
+	font-weight: 300;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	src: url("./fonts/Rubik-Regular.eot");
+	src: local("☺"), url("./fonts/Rubik-Regular.woff") format("woff"), url("./fonts/Rubik-Regular.ttf") format("truetype"), url("./fonts/Rubik-Regular.svg") format("svg");
+	font-family: Rubik;
+	font-weight: 400;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	src: url("./fonts/Rubik-SemiBold.eot");
+	src: local("☺"), url("./fonts/Rubik-SemiBold.woff") format("woff"), url("./fonts/Rubik-SemiBold.ttf") format("truetype"), url("./fonts/Rubik-SemiBold.svg") format("svg");
+	font-family: Rubik;
+	font-weight: 600;
+	font-style: normal;
+  font-display: swap;
+}
