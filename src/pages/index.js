@@ -163,6 +163,20 @@ import '../css/style.css';
     return false;
   });
 
+  $(".scrollto").on("click", function () {
+    console.log('Hello!');
+    let href = $(this).attr("href");
+
+    $("html, body").animate({
+        scrollTop: $(href).offset().top
+    }, {
+        duration: 370,   // по умолчанию «400»
+        easing: "linear" // по умолчанию «swing»
+    });
+
+    return false;
+});
+
 
 
 
