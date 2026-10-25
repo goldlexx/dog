@@ -1,0 +1,10 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-width: 320px; }
+body { font-family: Rubik, Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; color: #1f2a24; background: #fff; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+ul, ol { list-style: none; }
+.wrapper { overflow: hidden; min-height: 100%; }
+.page { position: relative; width: 100%; }
+.container { max-width: 1130px; margin: 0 auto; padding: 0 20px; }
