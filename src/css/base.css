@@ -8,3 +8,9 @@ ul, ol { list-style: none; }
 .wrapper { overflow: hidden; min-height: 100%; }
 .page { position: relative; width: 100%; }
 .container { max-width: 1130px; margin: 0 auto; padding: 0 20px; }
+
+html { scroll-behavior: smooth; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid #2f4a3a;
+  outline-offset: 3px;
+}

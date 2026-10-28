@@ -92,3 +92,33 @@
 /* back to top */
 .to-top { position: fixed; right: 16px; bottom: 16px; z-index: 60; width: 48px; height: 48px; border-radius: 50%; border: 0; background: #2f4a3a; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
 .to-top.is-visible { opacity: 1; pointer-events: auto; }
+
+/* phones: 3 reviews first, the rest behind a button; footer text centred */
+.reviews__more { display: none; }
+@media (max-width: 640px) {
+  .review--extra { display: none; }
+  .review--extra.is-open { display: flex; }
+  .reviews__more { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: 16px; border-radius: 999px; border: 1px solid #2f4a3a; background: transparent; color: #2f4a3a; font-weight: 600; font-size: 16px; cursor: pointer; }
+  .footer__inner { text-align: center; justify-items: center; }
+  .footer__col p { text-align: center; }
+}
+
+/* delivery route: three steps from Moscow to the dacha and back */
+.route { margin-top: 56px; }
+.route__title { font-size: 20px; font-weight: 700; color: #1f2a24; margin-bottom: 20px; }
+.route__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.route__step { background: #fff; border-radius: 20px; padding: 24px 22px; box-shadow: 0 6px 24px rgba(31,42,36,.06); }
+.route__n { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; background: #6b8a74; color: #fff; font-weight: 700; margin-bottom: 12px; }
+.route__step p { font-size: 15px; line-height: 1.55; color: #3d4a43; }
+@media (max-width: 768px) { .route__steps { grid-template-columns: 1fr; } }
+
+
+/* feeding guidance: practical pre-stay information */
+.food-care { background: #fdfbf6; border-top: 1px solid #e7e1d3; }
+.food-care__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.food-care__copy > p:not(.sec__kicker) { max-width: 650px; color: #3d4a43; font-size: 17px; line-height: 1.7; margin: 18px 0; }
+.food-care__copy .checklist { margin-bottom: 24px; }
+.food-care__visual { background: #fff; border-radius: 28px; padding: 24px; text-align: center; }
+.food-care__visual img { display: block; width: min(100%, 340px); aspect-ratio: 1; object-fit: contain; margin: 0 auto 12px; }
+.food-care__visual p { color: #526158; font-size: 14px; line-height: 1.55; max-width: 360px; margin: 0 auto; }
+@media (max-width: 760px) { .food-care__grid { grid-template-columns: 1fr; } .food-care__visual { padding: 18px; } .food-care__visual img { width: min(100%, 260px); } }

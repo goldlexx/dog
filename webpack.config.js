@@ -6,12 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    main: './src/pages/index.js'
+    main: './src/pages/index.js',
+    calculator: './src/pages/calculator.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
-    publicPath: '',
+    filename: '[name].js',
+    publicPath: '/',
   },
   mode: 'development',
   devServer: {
@@ -26,7 +27,7 @@ module.exports = {
     rules: [{
         test: /\.js$/,
         use: 'babel-loader',
-        exclude: '/node_modules/'
+        exclude: /node_modules/
       },
       {
         test: /\.(webp|png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
@@ -47,7 +48,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/calculator.html',
+      filename: 'tools/food-calculator/index.html',
+      chunks: ['calculator'],
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
