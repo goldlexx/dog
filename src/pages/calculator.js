@@ -13,6 +13,17 @@ const result = document.getElementById('result');
 const blocked = document.getElementById('blocked');
 let current = 1;
 
+function reachGoal(name) {
+  if (typeof window.ym === 'function') window.ym(113790002, 'reachGoal', name);
+}
+
+function scrollToCalculator() {
+  const section = document.getElementById('calculator');
+  if (!section) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+}
+
 function showStep(n) {
   current = n;
   steps.forEach((s) => {
@@ -159,6 +170,7 @@ form.addEventListener('submit', (e) => {
   }
   const activity = form.activity.value;
   const r = compute(weight, activity, kcal);
+  reachGoal('calculator_result');
   document.getElementById('resGrams').textContent = r.grams;
   stayDaily.value = r.grams;
   updateStayEstimate();
@@ -183,6 +195,9 @@ document.getElementById('redo').addEventListener('click', () => {
   document.getElementById('resultPreview').hidden = false;
   document.querySelector('.calc-grid').classList.remove('has-result');
   showStep(1);
+  scrollToCalculator();
+  // Put the cursor in the weight field so the user can edit right away.
+  document.getElementById('weight').focus({ preventScroll: true });
 });
 
 document.getElementById('resetCalc').addEventListener('click', () => {
@@ -205,7 +220,7 @@ document.getElementById('resetCalc').addEventListener('click', () => {
   stayCopyStatus.textContent = '';
   updateStayEstimate();
   showStep(1);
-  form.weight.focus({ preventScroll: true });
+  scrollToCalculator();
 });
 
 // Enter advances through the wizard instead of submitting the whole form from step 1 or 2.
@@ -236,8 +251,7 @@ const stayCopyStatus = document.getElementById('stayCopyStatus');
 let staySummary = '';
 
 function updateStayEstimate() {
-  const dailyRaw = String(stayDaily.value).trim().replace(',', '.');
-  const daily = /^\d+(?:\.\d+)?$/.test(dailyRaw) ? Number(dailyRaw) : NaN;
+  const daily = parseDecimal(stayDaily.value);
   const days = Number(stayDays.value);
   const reserve = Number(stayReserve.value);
   const meals = Number(stayMeals.value);
@@ -282,3 +296,9 @@ stayCopy.addEventListener('click', async () => {
   }
 });
 updateStayEstimate();
+
+
+// Track MAX contact clicks on the calculator page; analytics is optional.
+document.querySelectorAll('a[href*="max.ru"]').forEach((link) => {
+  link.addEventListener('click', () => reachGoal('click_max'));
+});

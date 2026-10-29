@@ -118,7 +118,16 @@
 .food-care__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
 .food-care__copy > p:not(.sec__kicker) { max-width: 650px; color: #3d4a43; font-size: 17px; line-height: 1.7; margin: 18px 0; }
 .food-care__copy .checklist { margin-bottom: 24px; }
-.food-care__visual { background: #fff; border-radius: 28px; padding: 24px; text-align: center; }
+.food-care__visual { background: #fff; border-radius: 28px; padding: 24px; text-align: center; align-self: center; min-width: 0; }
 .food-care__visual img { display: block; width: min(100%, 340px); aspect-ratio: 1; object-fit: contain; margin: 0 auto 12px; }
 .food-care__visual p { color: #526158; font-size: 14px; line-height: 1.55; max-width: 360px; margin: 0 auto; }
-@media (max-width: 760px) { .food-care__grid { grid-template-columns: 1fr; } .food-care__visual { padding: 18px; } .food-care__visual img { width: min(100%, 260px); } }
+@media (max-width: 760px) { .food-care__grid { grid-template-columns: minmax(0, 1fr); } .food-care__visual { padding: 16px; border-radius: 20px; height: auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 8px; } .food-care__visual img { width: min(100%, 190px); margin: 0 auto; } .food-care__visual p { max-width: 34ch; } }
+/* On small screens the bowl card is hidden: the text and the link stay. */
+@media (max-width: 760px) { .food-care__visual { display: none; } }
+
+
+/* On very narrow phones, keep the host portrait from dominating the page. */
+@media (max-width: 640px) {
+  #about .sec__media { height: 280px; overflow: hidden; border-radius: 22px; }
+  #about .sec__media img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center 34%; }
+}

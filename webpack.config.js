@@ -14,7 +14,7 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/',
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
     static: path.resolve(__dirname, './dist'),
     open: true,

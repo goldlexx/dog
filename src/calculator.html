@@ -49,7 +49,7 @@
       <header class="calc-top">
         <div class="container calc-top__inner">
           <a href="/" class="calc-top__brand">Алла <span>· ДачаДог</span></a>
-          <a href="/#contacts" class="calc-top__link">Написать</a>
+          <a href="https://max.ru/u/f9LHodD0cOLl61p4OjHwQOiZ8z8u7mE36Y0h46WpyF7qdkXm_0lUcGy-Vmo" class="calc-top__link" target="_blank" rel="noopener">Написать</a>
         </div>
       </header>
 
@@ -150,13 +150,13 @@
               <div><dt>Энергия в сутки</dt><dd><span id="resKcal">0</span> ккал</dd></div>
               <div><dt>Покой (RER)</dt><dd><span id="resRer">0</span> ккал</dd></div>
             </dl>
-            <p class="calc-result__note calc-result__senior" id="seniorNote" hidden>Для собак старше 8 лет расчёт условный: потребность в энергии у пожилых собак часто ниже, и норму лучше согласовать с ветеринаром.</p>
-            <p class="calc-result__note">Это стандартная формула, а не назначение. Корректируйте норму по весу собаки: если она худеет или полнеет, значит, порция не подходит.</p>
+            <p class="calc-result__note calc-result__senior" id="seniorNote" hidden><span class="calc-note-full">Для собак старше 8 лет расчёт условный: потребность в энергии у пожилых собак часто ниже, и норму лучше согласовать с ветеринаром.</span><span class="calc-note-compact"><strong>Для собак 8+ лет</strong><br>Расчёт ориентировочный — норму лучше согласовать с ветеринаром.</span></p>
+            <p class="calc-result__note"><span class="calc-note-full">Это стандартная формула, а не назначение. Корректируйте норму по весу собаки: если она худеет или полнеет, значит, порция не подходит.</span><span class="calc-note-compact">Следите за весом собаки и корректируйте порцию при необходимости.</span></p>
             <div class="calc-actions">
               <button type="button" class="calc-btn calc-btn--ghost" id="redo">Изменить данные</button>
               <button type="button" class="calc-btn calc-btn--ghost" id="resetCalc">Начать заново</button>
               <a class="calc-btn calc-btn--primary" href="#stay-calculator">Посчитать на передержку</a>
-              <a class="calc-btn calc-btn--ghost" href="/#contacts">Написать Алле</a>
+              <a class="calc-btn calc-btn--ghost" href="https://max.ru/u/f9LHodD0cOLl61p4OjHwQOiZ8z8u7mE36Y0h46WpyF7qdkXm_0lUcGy-Vmo" target="_blank" rel="noopener">Написать Алле</a>
             </div>
           </aside>
         </div>
@@ -167,7 +167,7 @@
           <div class="stay-calc-intro">
             <p class="calc-kicker">Подготовка к передержке</p>
             <h2 id="stayTitle">Сколько корма взять на весь срок?</h2>
-            <p>Укажите привычную суточную порцию и количество дней. Калькулятор добавит запас на непредвиденные обстоятельства — его размер можно изменить.</p>
+            <p>Укажите привычную суточную порцию и количество дней. Калькулятор добавит запас на непредвиденные обстоятельства — его размер можно изменить. На передержку принимаем собак весом до 20 кг.</p>
           </div>
           <div class="stay-calc-card">
             <div class="stay-calc-fields">
@@ -175,8 +175,8 @@
               <label class="calc-field"><span class="calc-field__label">Длительность, дней</span><input id="stayDays" type="number" min="1" max="90" step="1" value="7"></label>
               <label class="calc-field"><span class="calc-field__label">Запас на форс-мажор</span><select id="stayReserve"><option value="0">Без запаса</option><option value="5">5%</option><option value="10" selected>10% — рекомендуемый ориентир</option><option value="15">15%</option><option value="20">20%</option></select></label>
               <label class="calc-field"><span class="calc-field__label">Кормлений в день</span><select id="stayMeals"><option value="1">1 кормление</option><option value="2" selected>2 кормления</option><option value="3">3 кормления</option><option value="4">4 кормления</option></select></label>
+              <p class="stay-calc-error" id="stayError" role="alert" hidden>Укажите суточную порцию от 1 до 10 000 г и срок передержки от 1 до 90 дней.</p>
             </div>
-            <p class="stay-calc-error" id="stayError" role="alert" hidden>Укажите суточную порцию больше 0 г и срок от 1 до 90 дней.</p>
             <div class="stay-calc-result" aria-live="polite">
               <p class="stay-calc-result__label">Рекомендуемое количество</p>
               <p class="stay-calc-result__value"><span id="stayTotal">1,39</span> <small>кг</small></p>
@@ -193,8 +193,15 @@
       <section class="calc-section calc-section--tint" aria-labelledby="howTitle">
         <div class="container calc-text">
           <h2 id="howTitle">Как считается норма</h2>
-          <p>Сначала оцениваем базовую потребность в энергии в покое (RER): 70 × вес в кг в степени 0,75. Затем умножаем её на ориентировочный упрощённый коэффициент (1,2 для спокойного режима, 1,6 для обычного и 1,8 для высокой активности), получая суточную энергию (MER). Чтобы перевести энергию в граммы корма, делим MER на калорийность в ккал/100 г и умножаем на 100.</p>
-          <p>Выбранные коэффициенты — упрощённые ориентиры интерфейса, а не универсальные ветеринарные значения. Ветеринарные руководства учитывают в том числе стерилизацию, кондицию тела и этап жизни; потребность у собак одного веса может различаться. Следите за динамикой веса и согласуйте рацион с ветеринаром. Подробнее: <a href="https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/nutritional-requirements-of-small-animals" target="_blank" rel="noopener">Merck Veterinary Manual</a> и <a href="https://www.aaha.org/link/5b8362407b574b699fa17834d8b03d58.aspx" target="_blank" rel="noopener">рекомендации AAHA</a>.</p>
+          <p>Суточная порция рассчитывается по весу собаки, её активности и калорийности корма. Это ориентир для взрослых здоровых собак, а не замена рекомендациям ветеринара.</p>
+          <details class="calc-method">
+            <summary>Подробнее о формуле и источниках</summary>
+            <div class="calc-method__content">
+              <p>Сначала оцениваем базовую потребность в энергии в покое (RER): 70 × вес в кг в степени 0,75. Затем умножаем её на ориентировочный упрощённый коэффициент (1,2 для спокойного режима, 1,6 для обычного и 1,8 для высокой активности), получая суточную энергию (MER). Чтобы перевести энергию в граммы корма, делим MER на калорийность в ккал/100 г и умножаем на 100.</p>
+              <p>Выбранные коэффициенты — упрощённые ориентиры интерфейса, а не универсальные ветеринарные значения. Ветеринарные руководства учитывают в том числе стерилизацию, кондицию тела и этап жизни; потребность у собак одного веса может различаться. Следите за динамикой веса и согласуйте рацион с ветеринаром.</p>
+              <p>Подробнее: <a href="https://www.merckvetmanual.com/management-and-nutrition/nutrition-small-animals/nutritional-requirements-of-small-animals" target="_blank" rel="noopener">Merck Veterinary Manual</a> и <a href="https://www.aaha.org/link/5b8362407b574b699fa17834d8b03d58.aspx" target="_blank" rel="noopener">рекомендации AAHA</a>.</p>
+            </div>
+          </details>
         </div>
       </section>
 

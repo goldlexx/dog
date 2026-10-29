@@ -1,7 +1,7 @@
 {
   "name": "dogsitting",
   "version": "1.0.0",
-  "description": "Лендинг догситтера: передержка собак за городом и в Москве.",
+  "description": "Лендинг ДачаДог: передержка собак за городом и в Москве.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production && node scripts/cname.js",
