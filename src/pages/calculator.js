@@ -149,6 +149,17 @@ form.unsuitable.addEventListener('change', () => {
   }
 });
 
+// If any answer changes after a result is shown, hide that result so the
+// numbers on screen always match the data currently entered.
+function hideStaleResult() {
+  if (result.hidden) return;
+  result.hidden = true;
+  document.getElementById('resultPreview').hidden = false;
+  document.querySelector('.calc-grid').classList.remove('has-result');
+}
+form.addEventListener('input', hideStaleResult);
+form.addEventListener('change', hideStaleResult);
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (isUnsuitable()) {
@@ -182,7 +193,7 @@ form.addEventListener('submit', (e) => {
   document.getElementById('resultPreview').hidden = true;
   document.querySelector('.calc-grid').classList.add('has-result');
   // On phones the result follows the form; scroll to it only when it is not already visible.
-  if (window.matchMedia('(max-width: 900px)').matches) {
+  if (window.matchMedia('(max-width: 1024px)').matches) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     result.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     result.focus({ preventScroll: true });
@@ -255,8 +266,8 @@ function updateStayEstimate() {
   const days = Number(stayDays.value);
   const reserve = Number(stayReserve.value);
   const meals = Number(stayMeals.value);
-  const valid = Number.isFinite(daily) && daily > 0 && daily <= 10000 && Number.isInteger(days) && days >= 1 && days <= 90;
-  const validDaily = Number.isFinite(daily) && daily > 0 && daily <= 10000;
+  const valid = Number.isFinite(daily) && daily >= 1 && daily <= 10000 && Number.isInteger(days) && days >= 1 && days <= 90;
+  const validDaily = Number.isFinite(daily) && daily >= 1 && daily <= 10000;
   const validDays = Number.isInteger(days) && days >= 1 && days <= 90;
   stayError.hidden = valid;
   stayDaily.setAttribute('aria-invalid', String(!validDaily));
@@ -273,13 +284,14 @@ function updateStayEstimate() {
   const extra = Math.ceil(base * reserve / 100);
   const total = Math.ceil(base + extra);
   const fmt = (n) => Math.round(n).toLocaleString('ru-RU');
+  const fmtDaily = (n) => n.toLocaleString('ru-RU', { maximumFractionDigits: 1 });
   stayTotal.textContent = (total / 1000).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const baseKg = (base / 1000).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   stayBreakdown.textContent = reserve > 0
     ? `${baseKg} кг на основной срок + ${reserve}% запаса (${fmt(extra)} г)`
     : `${baseKg} кг ровно на ${days} дн., без запаса`;
   stayPerMeal.textContent = `${fmt(Math.ceil(daily / meals))} г`;
-  staySummary = `Корм на передержку: ${fmt(daily)} г в сутки × ${days} дн. = ${fmt(base)} г; запас ${reserve}% — ${fmt(extra)} г; всего ${fmt(total)} г (${(total / 1000).toLocaleString('ru-RU', { maximumFractionDigits: 2 })} кг). ${fmt(Math.ceil(daily / meals))} г за кормление при ${meals} кормлениях в день.`;
+  staySummary = `Корм на передержку: ${fmtDaily(daily)} г в сутки × ${days} дн. = ${fmt(base)} г; запас ${reserve}% — ${fmt(extra)} г; всего ${fmt(total)} г (${(total / 1000).toLocaleString('ru-RU', { maximumFractionDigits: 2 })} кг). ${fmt(Math.ceil(daily / meals))} г за кормление при ${meals} кормлениях в день.`;
   stayCopyStatus.textContent = '';
 }
 [stayDaily, stayDays, stayReserve, stayMeals].forEach((field) => {

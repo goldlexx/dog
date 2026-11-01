@@ -6,6 +6,9 @@
 .sec__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .sec__media img { width: 100%; border-radius: 24px; display: block; aspect-ratio: 4/5; object-fit: cover; }
 .sec__link { display: inline-block; margin-top: 24px; color: #2f4a3a; font-weight: 600; }
+.sec__place { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 8px; font-size: 15px; line-height: 1.5; color: #3d4a43; }
+.sec__place-icon { flex: 0 0 auto; color: #2f4a3a; }
+.sec__place a { color: #2f4a3a; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .step { background: #fff; border-radius: 20px; padding: 28px 22px; box-shadow: 0 6px 24px rgba(31,42,36,.06); }
@@ -108,7 +111,7 @@
 .route__title { font-size: 20px; font-weight: 700; color: #1f2a24; margin-bottom: 20px; }
 .route__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .route__step { background: #fff; border-radius: 20px; padding: 24px 22px; box-shadow: 0 6px 24px rgba(31,42,36,.06); }
-.route__n { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; background: #6b8a74; color: #fff; font-weight: 700; margin-bottom: 12px; }
+.route__n { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; background: #557460; color: #fff; font-weight: 700; margin-bottom: 12px; }
 .route__step p { font-size: 15px; line-height: 1.55; color: #3d4a43; }
 @media (max-width: 768px) { .route__steps { grid-template-columns: 1fr; } }
 
